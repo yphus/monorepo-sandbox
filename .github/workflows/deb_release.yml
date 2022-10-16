@@ -3,10 +3,48 @@ name: Debian packages release
 on:
   workflow_dispatch:
     inputs:
-      config:
-        description: JSON of options
-        type: string
-        default: '{}'
+      mode:
+        required: true
+        type: choice
+        description: Type of release
+        options: 
+        - stable
+        - testing
+      dry_run:
+        required: true
+        type: boolean
+      checkbox-ng:
+        type: boolean
+        required: true
+      checkbox-support:
+        type: boolean
+        required: true
+      provider-base:
+        type: boolean
+        required: true
+      provider-resource:
+        type: boolean
+        required: true
+      provider-tpm2:
+        type: boolean
+        required: true
+      provider-sru:
+        type: boolean
+        required: true
+      provider-certification-client:
+        type: boolean
+        required: true
+      provider-certification-server:
+        type: boolean
+        required: true
+      provider-gpgpu:
+        type: boolean
+        required: true
+      provider-ipdt:
+        type: boolean
+        required: true
+      provider-phoronix:
+        type: boolean
         required: true
 
 jobs:
